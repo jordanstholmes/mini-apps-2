@@ -12,7 +12,6 @@ const Wrapper = styled.section`
 
 const App = () => (
   <Wrapper>
-    <h1>this is from React</h1>
     <Search />
   </Wrapper>
 );
