@@ -6,6 +6,9 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
+  resolve: {
+    extensions: ['.jsx', '.js'],
+  },
   module: {
     rules: [
       {
@@ -15,12 +18,10 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['babel-plugin-styled-components'],
           },
         },
       },
     ],
   },
-  plugins: [
-    'bable-plugin-styled-components',
-  ],
 };
