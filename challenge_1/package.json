@@ -1,0 +1,25 @@
+{
+  "name": "historical-events-finder",
+  "version": "1.0.0",
+  "description": "A single-page app that enables users to search and browsse historical event information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanstholmes/hrsf105-mini-apps-2.git"
+  },
+  "keywords": [
+    "history"
+  ],
+  "author": "Jordan Holmes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanstholmes/hrsf105-mini-apps-2/issues"
+  },
+  "homepage": "https://github.com/jordanstholmes/hrsf105-mini-apps-2#readme",
+  "devDependencies": {
+    "json-server": "^0.14.0"
+  }
+}
