@@ -20,4 +20,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    'bable-plugin-styled-components',
+  ],
 };
