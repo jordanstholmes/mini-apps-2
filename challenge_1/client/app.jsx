@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
-import EventList from './components/eventList';
 
+import EventList from './components/eventList';
 import Search from './components/search';
+import Paginate from './components/paginate';
 
 const apiUrl = process.env.API_URL || 'http://localhost:3000';
 
@@ -15,10 +15,6 @@ const ColumnWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const RowWrapper = styled.div`
-  display: flex;
 `;
 
 class App extends React.Component {
@@ -59,23 +55,7 @@ class App extends React.Component {
       <ColumnWrapper>
         <Search />
         {events.length === 0 ? '' : <EventList events={events} />}
-
-        <RowWrapper>
-          {
-            pageCount && (
-              <ReactPaginate
-                previousLabel="previous"
-                nextLabel="next"
-                breakLabel="..."
-                breakClassName="break-me"
-                pageCount={pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={this.handlePageClick}
-              />
-            )
-          }
-        </RowWrapper>
+        <Paginate pageCount={pageCount} handlePageClick={this.handlePageClick} />
       </ColumnWrapper>
     );
   }
