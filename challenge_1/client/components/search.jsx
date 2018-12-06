@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
 // const Wrapper = styled.div`
@@ -7,7 +8,7 @@ import React from 'react';
 // `;
 const defaultText = 'enter keyword(s)';
 
-export default class Search extends React.Component {
+class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +16,7 @@ export default class Search extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.searchClick = this.searchClick.bind(this);
   }
 
   handleChange(event) {
@@ -29,13 +31,25 @@ export default class Search extends React.Component {
     }
   }
 
+  searchClick() {
+    const { text } = this.state;
+    const { handleSearchClick } = this.props;
+    handleSearchClick(text);
+  }
+
   render() {
     const { text } = this.state;
     return (
       <div>
-        <button type="button">Search</button>
+        <button type="button" onClick={this.searchClick}>Search</button>
         <input name="text" value={text} onChange={this.handleChange} onClick={this.handleClick} />
       </div>
     );
   }
 }
+
+Search.propTypes = {
+  handleSearchClick: PropTypes.func.isRequired,
+};
+
+export default Search;
