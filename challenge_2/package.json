@@ -1,0 +1,38 @@
+{
+  "name": "cryptocurrency-charting",
+  "version": "1.0.0",
+  "description": "A single-page app for view the historical price data for a cryptocurrency",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanstholmes/hrsf105-mini-apps-2.git"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "bitcoin"
+  ],
+  "author": "Jordan Holmes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanstholmes/hrsf105-mini-apps-2/issues"
+  },
+  "homepage": "https://github.com/jordanstholmes/hrsf105-mini-apps-2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "styled-components": "^4.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
