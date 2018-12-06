@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-
-// const Wrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `;
-const defaultText = 'enter keyword(s)';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      text: defaultText,
-    };
+    const { defaultText } = this.props;
+    this.state = { text: defaultText };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.searchClick = this.searchClick.bind(this);
@@ -26,12 +18,14 @@ class Search extends React.Component {
 
   handleClick() {
     const { text } = this.state;
+    const { defaultText } = this.props;
     if (text === defaultText) {
       this.setState({ text: '' });
     }
   }
 
-  searchClick() {
+  searchClick(event) {
+    event.preventDefault();
     const { text } = this.state;
     const { handleSearchClick } = this.props;
     handleSearchClick(text);
@@ -40,16 +34,17 @@ class Search extends React.Component {
   render() {
     const { text } = this.state;
     return (
-      <div>
-        <button type="button" onClick={this.searchClick}>Search</button>
+      <form onSubmit={this.searchClick}>
+        <button type="submit">Search</button>
         <input name="text" value={text} onChange={this.handleChange} onClick={this.handleClick} />
-      </div>
+      </form>
     );
   }
 }
 
 Search.propTypes = {
   handleSearchClick: PropTypes.func.isRequired,
+  defaultText: PropTypes.string.isRequired,
 };
 
 export default Search;

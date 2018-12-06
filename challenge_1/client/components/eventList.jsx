@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Event from './event';
 
+const Wrapper = styled.div`
+  width: 70%;
+`;
+
 const EventList = ({ events }) => (
-  <div>
+  <Wrapper>
     {
       events.map(({ date, description }, idx) => (
         <Event key={idx} date={date} description={description} />
       ))
     }
-  </div>
+  </Wrapper>
 );
 
 EventList.propTypes = {

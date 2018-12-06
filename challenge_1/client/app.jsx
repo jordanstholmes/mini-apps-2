@@ -10,11 +10,16 @@ import Search from './components/search';
 import Paginate from './components/paginate';
 
 const API_URL = process.env.API_URL || 'http://localhost:3000';
+const DEFAULT_SEARCH_TEXT = 'enter keyword(s)';
 
-const ColumnWrapper = styled.section`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Title = styled.h1`
+  font-size: 40px;
 `;
 
 class App extends React.Component {
@@ -22,7 +27,6 @@ class App extends React.Component {
     super(props);
     this.state = {
       events: [],
-      // page: 0,
       pageCount: 0,
       lastSearched: '',
     };
@@ -33,14 +37,11 @@ class App extends React.Component {
 
   fetchEvents(page, keyword) {
     const { perPage } = this.props;
-    // const query = `${API_URL}/events?q=${keyword}&_page=${page}&_limit=${perPage}`;
     const query = `${API_URL}/events?q=${keyword}&_page=${page}&_limit=${perPage}`;
-    console.log('The query was:', query);
     return axios.get(query)
       .then((res) => {
         const totalEvents = Number(res.headers['x-total-count']);
         const pageCount = Math.ceil(totalEvents / perPage);
-        console.log('Got this data:', res.data);
         this.setState({
           events: res.data,
           pageCount,
@@ -50,6 +51,7 @@ class App extends React.Component {
   }
 
   handleSearchClick(keyword) {
+    if (keyword === DEFAULT_SEARCH_TEXT) return;
     this.fetchEvents(0, keyword);
     this.setState({ lastSearched: keyword });
   }
@@ -58,19 +60,19 @@ class App extends React.Component {
     const { lastSearched } = this.state;
     console.log('Search term:', lastSearched);
     console.log('Page requested', selected);
-    // Note below: ReactPaginate is 0-indexed, but json-server starts at 1
+    // Note: below, +1 is because ReactPaginate is 0-indexed, but json-server is 1-indexed
     this.fetchEvents(selected + 1, lastSearched);
-    // .then(res => this.setState({ events: res.data, pageCount: Number(res.headers['x-total-count']) }));
   }
 
   render() {
     const { events, pageCount } = this.state;
     return (
-      <ColumnWrapper>
-        <Search handleSearchClick={this.handleSearchClick} />
+      <Wrapper>
+        <Title>Historical Events Finder</Title>
+        <Search handleSearchClick={this.handleSearchClick} defaultText={DEFAULT_SEARCH_TEXT} />
         <Paginate pageCount={pageCount} handlePageClick={this.handlePageClick} />
-        {events.length === 0 ? '' : <EventList events={events} />}
-      </ColumnWrapper>
+        <EventList events={events} />
+      </Wrapper>
     );
   }
 }
