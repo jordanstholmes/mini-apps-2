@@ -4,7 +4,7 @@
   "description": "An app to simulate bowling scoring",
   "main": "server.js",
   "scripts": {
-    "test": "jest --no-cache --verbose",
+    "test": "jest --watch",
     "dev": "webpack -w -d & nodemon server.js",
     "start": "node server.js"
   },
