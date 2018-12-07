@@ -1,0 +1,44 @@
+{
+  "name": "bowling-master",
+  "version": "1.0.0",
+  "description": "An app to simulate bowling scoring",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack -w -d & nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanstholmes/hrsf105-mini-apps-2.git"
+  },
+  "keywords": [
+    "bowling"
+  ],
+  "author": "Jordan Holmes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanstholmes/hrsf105-mini-apps-2/issues"
+  },
+  "homepage": "https://github.com/jordanstholmes/hrsf105-mini-apps-2#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
