@@ -4,7 +4,7 @@
   "description": "An app to simulate bowling scoring",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "dev": "webpack -w -d & nodemon server.js",
     "start": "node server.js"
   },
@@ -30,7 +30,8 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0"
   },
   "dependencies": {
     "express": "^4.16.4",
