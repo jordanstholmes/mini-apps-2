@@ -25,7 +25,7 @@ const convertShotsToDisplay = (shot1, shot2) => {
 const FrameShots = ({ first, second }) => {
   const shotsForDisplay = convertShotsToDisplay(first, second);
   return (
-    <table>
+    <table className="frame-shots">
       <tbody>
         <tr>
           <td>{shotsForDisplay[0]}</td>
