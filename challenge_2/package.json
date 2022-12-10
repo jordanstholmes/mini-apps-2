@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/jordanstholmes/hrsf105-mini-apps-2#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "chart.js": "^2.7.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "isomorphic-fetch": "^2.2.1",
     "morgan": "^1.9.1",
     "prop-types": "^15.6.2",
